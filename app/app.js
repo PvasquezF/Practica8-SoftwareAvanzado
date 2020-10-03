@@ -3,13 +3,13 @@ var mysql = require('mysql');
 const app = express()
 const port = 80;
 var connection = mysql.createConnection({
-    host: 'localhost',
+    host: '35.202.209.170',
     port: '3306',
     user: 'root',
     password: '12345',
     database: 'practica8-softwareavanzado'
 });
-
+connection.connect();
 app.get('/', (req, res) => {
     res.status(200).json({
         result: 'hola'
@@ -17,19 +17,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/db', (req, res) => {
-    connection.connect();
-
-    connection.query('SELECT 1 + 1 AS solution', function(error, results, fields) {
-        if (error) {
-            connection.end();
+    mc.query("Select 1+1 As solution", function(err, result, fields) {
+        if (err) {
             res.status(200).json({
-                result: error
+                result: err
             });
         } else {
-            connection.end();
             res.status(200).json({
-
-                result: results[0].solution
+                result
             });
         }
     });
