@@ -1,0 +1,21 @@
+services: 
+    db:
+        build:
+            context: ./db
+            dockerfile: Dockerfile
+        container_name: database-mysql
+        environment:
+            MYSQL_DATABASE: practica8-softwareavanzado
+            MYSQL_USER: root
+            MYSQL_PASSWORD: 12345
+            MYSQL_ROOT_PASSWORD: 12345
+        network_mode: "host"
+        ports:
+            - "3306:3306"
+    app:
+        build:
+            context: ./app/
+            dockerfile: Dockerfile
+        container_name: app-nodejs
+        ports:
+            - "3000:8080"
