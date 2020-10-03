@@ -1,5 +1,5 @@
 From mysql:latest
 COPY script.sql /docker-entrypoint-initdb.d
-COPY command.sh /docker-entrypoint-initdb.d
-RUN sudo ./docker-entrypoint-initdb.d/command.sh
+COPY command.sh .
+RUN sudo ./command.sh
 EXPOSE 3306
