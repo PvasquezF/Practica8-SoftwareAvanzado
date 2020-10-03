@@ -1,13 +1,13 @@
-services:
+services: 
     db:
-        image: mysql:8.0.15
-        volumes:
-        - "./.mysql-data/db:/var/lib/mysql"
-        ports:
-        - 3306:3306
+        build:
+            context: ./db
+            dockerfile: Dockerfile
+        container_name: database-mysql
+        restart: always
         environment:
             MYSQL_DATABASE: practica8-softwareavanzado
-            MYSQL_USER: root
+            MYSQL_USER: sa
             MYSQL_PASSWORD: 12345
             MYSQL_ROOT_PASSWORD: 12345
         network_mode: "host"
