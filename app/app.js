@@ -14,10 +14,16 @@ app.get('/', (req, res) => {
     connection.connect();
 
     connection.query('SELECT 1 + 1 AS solution', function(error, results, fields) {
-        if (error) throw error;
-        res.status(200).json({
-            result: results[0].solution
-        });
+        if (error) {
+            res.status(200).json({
+                result: error
+            });
+        } else {
+            res.status(200).json({
+
+                result: results[0].solution
+            });
+        }
     });
     connection.end();
 });
