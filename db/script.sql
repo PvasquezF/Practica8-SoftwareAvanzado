@@ -1,3 +1,4 @@
+use practica8-softwareavanzado;
 CREATE TABLE animales(
     id integer primary key autoincrement,
     nombre varchar(250),
