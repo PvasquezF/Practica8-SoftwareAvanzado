@@ -17,15 +17,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/db', (req, res) => {
-    mc.query("Select 1+1 As solution", function(err, result, fields) {
+    connection.query("Select 1+1 As solution", function(err, result, fields) {
         if (err) {
             res.status(200).json({
-                result: err
+                result: 'hola'
             });
         } else {
-            res.status(200).json({
-                result
-            });
+            res.send(result);
         }
     });
 });
