@@ -1,10 +1,11 @@
-services: 
+services:
     db:
-        build:
-            context: ./db
-            dockerfile: Dockerfile
-        container_name: database-mysql
+        image: mysql:latest
+        volumes:
+        - "./.mysql-data/db:/var/lib/mysql"
         restart: always
+        ports:
+        - 3306:3306
         environment:
             MYSQL_DATABASE: practica8-softwareavanzado
             MYSQL_USER: sa
