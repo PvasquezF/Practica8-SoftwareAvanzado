@@ -1,8 +1,8 @@
 const http = require("http");
-const port = 80;
+const port = 3000;
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: 'localhost',
+    host: 'http://35.202.209.170:3306',
     user: 'root',
     password: '12345',
     database: 'practica8-softwareavanzado'
