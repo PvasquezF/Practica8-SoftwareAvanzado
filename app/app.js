@@ -5,7 +5,7 @@ const port = 80;
 var connection = mysql.createConnection({
     host: 'localhost',
     port: '3306',
-    user: 'sa',
+    user: 'root',
     password: '12345',
     database: 'practica8-softwareavanzado'
 });
@@ -21,17 +21,18 @@ app.get('/db', (req, res) => {
 
     connection.query('SELECT 1 + 1 AS solution', function(error, results, fields) {
         if (error) {
+            connection.end();
             res.status(200).json({
                 result: error
             });
         } else {
+            connection.end();
             res.status(200).json({
 
                 result: results[0].solution
             });
         }
     });
-    connection.end();
 });
 
 app.listen(port, () => {
