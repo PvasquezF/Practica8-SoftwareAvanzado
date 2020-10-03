@@ -8,15 +8,15 @@ var connection = mysql.createConnection({
     database: 'practica8-softwareavanzado'
 });
 const requestListener = function(req, res) {
-    connection.connect();
+    // connection.connect();
 
-    connection.query('SELECT 1 + 1 AS solution', function(error, results, fields) {
-        if (error) throw error;
-        res.writeHead(200);
-        res.end('The solution is: ', results[0].solution);
-    });
+    // connection.query('SELECT 1 + 1 AS solution', function(error, results, fields) {
+    //     if (error) throw error;
+    // });
+    // connection.end();
+    res.writeHead(200);
+    res.end('The solution is: ');
 
-    connection.end();
 };
 
 const server = http.createServer(requestListener);
