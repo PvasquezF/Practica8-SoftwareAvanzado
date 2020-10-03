@@ -1,8 +1,8 @@
 FROM node:12
 
 # Create app directory
-WORKDIR /
-COPY package*.json ./
+WORKDIR /usr/src/app
+COPY package*.json .
 
 RUN npm install
 COPY . .
