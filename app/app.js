@@ -3,7 +3,7 @@ var mysql = require('mysql');
 const app = express()
 const port = 80;
 var connection = mysql.createConnection({
-    host: '35.202.209.170',
+    host: 'localhost',
     port: '3306',
     user: 'root',
     password: '12345',
@@ -17,13 +17,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/db', (req, res) => {
-    connection.query("Select 1+1 As solution", function(err, result, fields) {
+    connection.query("Select * from animales", function(err, result, fields) {
         if (err) {
             res.status(200).json({
-                result: 'hola'
+                result: err
             });
         } else {
-            res.send(result);
+            res.status(200).json({
+                result
+            });
         }
     });
 });
