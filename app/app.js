@@ -1,10 +1,10 @@
 const express = require('express')
+var mysql = require('mysql');
 const app = express()
 const port = 80;
-var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
-    port: 3306,
+    port: '3306',
     user: 'sa',
     password: '12345',
     database: 'practica8-softwareavanzado'
