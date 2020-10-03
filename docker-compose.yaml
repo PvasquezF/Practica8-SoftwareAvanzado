@@ -4,6 +4,7 @@ services:
             context: ./db
             dockerfile: Dockerfile
         container_name: database-mysql
+        restart: always
         environment:
             MYSQL_DATABASE: practica8-softwareavanzado
             MYSQL_USER: root
