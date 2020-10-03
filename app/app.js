@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
-const port = 80;
+const port = 3000;
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: 'localhost',
+    host: 'http://35.202.209.170',
     port: 3306,
     user: 'root',
     password: '12345',
@@ -28,6 +28,6 @@ app.get('/', (req, res) => {
     connection.end();
 });
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
