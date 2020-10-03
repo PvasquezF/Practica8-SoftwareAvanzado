@@ -1,3 +1,3 @@
 From mysql:latest
-ADD script.sql /docker-entrypoint-initdb.d
+COPY script.sql /docker-entrypoint-initdb.d
 EXPOSE 3306
