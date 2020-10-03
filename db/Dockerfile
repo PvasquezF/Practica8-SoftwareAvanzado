@@ -1,2 +1,2 @@
-From mysql:8.0.15
+FROM mysql/mysql-server:5.7
 ADD script.sql /docker-entrypoint-initdb.d/
