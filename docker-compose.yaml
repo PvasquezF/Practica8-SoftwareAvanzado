@@ -7,7 +7,7 @@ services:
         restart: always
         environment:
             MYSQL_DATABASE: practica8-softwareavanzado
-            MYSQL_USER: root
+            MYSQL_USER: sa
             MYSQL_PASSWORD: 12345
             MYSQL_ROOT_PASSWORD: 12345
         network_mode: "host"
