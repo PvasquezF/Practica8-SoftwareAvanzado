@@ -1,5 +1,5 @@
 const http = require("http");
-const port = 8080;
+const port = 80;
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
