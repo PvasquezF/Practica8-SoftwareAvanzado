@@ -1,5 +1,6 @@
 const express = require('express')
 var mysql = require('mysql');
+const fetch = require('node-fetch');
 const app = express()
 const port = 80;
 var connection = mysql.createConnection({
@@ -10,13 +11,7 @@ var connection = mysql.createConnection({
     database: 'practica8-softwareavanzado'
 });
 connection.connect();
-app.get('/', (req, res) => {
-    res.status(200).json({
-        result: 'hola'
-    });
-});
-
-app.get('/db', (req, res) => {
+app.get('/', async(req, res) => {
     connection.query("Select * from animales", function(err, result, fields) {
         if (err) {
             res.status(200).json({
@@ -28,6 +23,7 @@ app.get('/db', (req, res) => {
             });
         }
     });
+    connection.query(`INSERT INTO animales VALUES('Fecha', '${new Date()}');`)
 });
 
 app.listen(port, () => {
